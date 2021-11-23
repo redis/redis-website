@@ -1,0 +1,14 @@
+{{ $color := .Get "color" | default "primary" }}
+{{ $input := split .Inner "\n" }}
+{{ $output := slice }}
+{{ range $input }}
+  {{ $line := trim . " " }}
+  {{ if ne $line "" }}
+    {{ $output = $output | append $line }}
+  {{ end }}
+{{ end }}
+
+{{/* TBD: actually run against backend */}}
+{{ $output = delimit $output "\nTBD\nredis> " }}
+{{ $output = printf "redis> %s" $output }}
+{{ printf "```\n%s\n```" $output | markdownify }}

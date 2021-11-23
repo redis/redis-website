@@ -1,0 +1,12 @@
+{{ $name := replace (upper .File.BaseFileName) "-" " " 1 }}
+{{ if not (isset $.Site.Data.commands $name) }}
+  {{ errorf "`%s` not found in commands.json" $name }}
+{{ end}}
+
+{{ $data := (index $.Site.Data.commands $name) }}
+{{ $syntax := "" }}
+{{ if (isset $data "arguments") }}
+  {{ $syntax = partial "command-syntax.html" $data.arguments }}
+{{ end }}
+{{ $data := merge $data (dict "name" $name) (dict "syntax" $syntax) }}
+{{ return $data }}

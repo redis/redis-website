@@ -1,0 +1,19 @@
+{
+  "bitmap": "Bitmap",
+  "cluster": "Cluster",
+  "connection": "Connection",
+  "generic": "Generic",
+  "geo": "Geo",
+  "hash": "Hash",
+  "hyperloglog": "HyperLogLog",
+  "list": "List",
+  "pubsub": "Pub/Sub",
+  "scripting": "Scripting",
+  "server": "Server",
+  "set": "Set",
+  "sorted_set": "Sorted Set",
+  "stream": "Stream",
+  "string": "String",
+  "transactions": "Transactions",
+  "ai": "RedisAI"
+}

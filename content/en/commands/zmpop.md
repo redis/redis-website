@@ -1,0 +1,30 @@
+Pops one or more elements, that are member-score pairs, from the first non-empty sorted set in the provided list of key names.
+
+`ZMPOP` and [`BZMPOP`](/commands/bzmpop) are similar to the following, more limited, commands:
+
+- [`ZPOPMIN`](/commands/zpopmin) or [`ZPOPMAX`](/commands/zpopmax) which take only one key, and can return multiple elements.
+- [`BZPOPMIN`](/commands/bzpopmin) or [`BZPOPMAX`](/commands/bzpopmax) which take multiple keys, but return only one element from just one key.
+
+See [`BZMPOP`](/commands/bzmpop) for the blocking variant of this command.
+
+When the `MIN` modifier is used, the elements popped are those with the lowest scores from the first non-empty sorted set. The `MAX` modifier causes elements with the highest scores to be popped.
+The optional `COUNT` can be used to specify the number of elements to pop, and is set to 1 by default.
+
+The number of popped elements is the minimum from the sorted set's cardinality and `COUNT`'s value.
+
+## Examples
+
+{{% redis-cli %}}
+ZMPOP 1 notsuchkey MIN
+ZADD myzset 1 "one" 2 "two" 3 "three"
+ZMPOP 1 myzset MIN
+ZRANGE myzset 0 -1 WITHSCORES
+ZMPOP 1 myzset MAX COUNT 10
+ZADD myzset2 4 "four" 5 "five" 6 "six"
+ZMPOP 2 myzset myzset2 MIN COUNT 10
+ZRANGE myzset 0 -1 WITHSCORES
+ZMPOP 2 myzset myzset2 MAX COUNT 10
+ZRANGE myzset2 0 -1 WITHSCORES
+EXISTS myzset myzset2
+{{% /redis-cli %}}
+

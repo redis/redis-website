@@ -1,0 +1,50 @@
+{{ $s := "" }}
+{{ if reflect.IsSlice . }}
+  {{ range . }}
+    {{ $s = printf "%s %s" $s (partial "command-syntax.html" .) }}
+  {{ end }}
+  {{ $s = trim $s " " }}
+{{ else if reflect.IsMap . }}
+  {{ if not (isset . "type") }}
+    {{ errorf "No 'type' set for argument %q" . }}
+  {{ else if not (isset . "name") }}
+    {{ errorf "No 'name' set for argument %q" . }}
+  {{ else if eq .type "block" }}
+    {{ $s = partial "command-syntax.html" .value }}
+  {{ else if eq .type "oneof" }}
+    {{ $v := slice }}
+    {{ range .value }}
+      {{ $v = $v | append (trim (partial "command-syntax.html" .) " ") }}
+    {{ end }}
+    {{ $s = delimit $v "|" }}
+  {{ else if in (slice "integer" "double" "string" "unix-time" "pattern" "key") .type }}
+      {{ $s = .value }}
+  {{ else if ne .type "pure-token" }}
+    {{ errorf "Unknown type set for argument %q" . }}
+  {{ end }}
+
+  {{ if and (isset . "multiple") .multiple }}
+    {{ if (isset . "token") }}
+      {{ if .multiple_token }}
+        {{ $s = printf "%s %s" .token $s }}
+        {{ $s = printf "%s [%s ...]" $s $s}}
+      {{ else }}
+        {{ $s = printf "%s %s [%s ...]" .token $s $s}}
+      {{ end }}
+    {{ else }}
+      {{ $s = printf "%s [%s ...]" $s $s}}
+    {{ end }}
+  {{ else }}
+    {{ if (isset . "token") }}
+      {{ $s = printf "%s %s" .token $s }}
+    {{ end }}
+  {{ end }}
+
+  {{ if and (isset . "optional") .optional }}
+    {{ $s = printf "[%s]" $s }}
+  {{ end }}
+{{ else }}
+  {{ $s = printf "__TBD__(%T %+v)" . . }}
+{{ end }}
+
+{{ return $s }}
