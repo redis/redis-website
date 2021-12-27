@@ -5,22 +5,18 @@
   {{ end }}
   {{ $s = trim $s " " }}
 {{ else if reflect.IsMap . }}
-  {{ if not (isset . "type") }}
-    {{ errorf "No 'type' set for argument %q" . }}
-  {{ else if not (isset . "name") }}
-    {{ errorf "No 'name' set for argument %q" . }}
-  {{ else if eq .type "block" }}
-    {{ $s = partial "command-syntax.html" .value }}
+  {{ if eq .type "block" }}
+    {{ $s = partial "command-syntax.html" .arguments }}
   {{ else if eq .type "oneof" }}
     {{ $v := slice }}
-    {{ range .value }}
+    {{ range .arguments }}
       {{ $v = $v | append (trim (partial "command-syntax.html" .) " ") }}
     {{ end }}
     {{ $s = delimit $v "|" }}
   {{ else if in (slice "integer" "double" "string" "unix-time" "pattern" "key") .type }}
-      {{ $s = .value }}
+      {{ $s = .name }}
   {{ else if ne .type "pure-token" }}
-    {{ errorf "Unknown type set for argument %q" . }}
+    {{ errorf "Syntax error: unknown type set for argument %q" . }}
   {{ end }}
 
   {{ if and (isset . "multiple") .multiple }}
@@ -44,7 +40,7 @@
     {{ $s = printf "[%s]" $s }}
   {{ end }}
 {{ else }}
-  {{ $s = printf "__TBD__(%T %+v)" . . }}
+  {{ errorf "Syntax error: command argument isn't an array or an object: (%T %+v)" . . }}
 {{ end }}
 
 {{ return $s }}
