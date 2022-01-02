@@ -1,42 +1,38 @@
 {{ define "main" }}
-{{ $c := partial "command-getdata.html" . }}
-
-<h1>{{ $c.name }} {{ $c.syntax }}</h1>
+{{ $syntax := "" }}
+{{ if isset .Params "arguments" }}
+{{ $syntax = partial "command-syntax.html" .Params.arguments }}
+{{ end }}
+<h1>{{ .Title }} {{ $syntax }}</h1>
 
 <div class="alert alert-primary" role="alert">
-  <div><strong>Available since:</strong> {{ $c.since }}</div>
-  <div><strong>Time complexity:</strong> {{ $c.complexity | markdownify }}</div>
+  <div><strong>Available since:</strong> {{ .Params.since }}</div>
+  <div><strong>Time complexity:</strong> {{ .Params.complexity | markdownify }}</div>
   <div><strong>ACL categories:</strong>
-    {{ range $c.acl_categories }}
-    {{ printf "`@%s`" . | markdownify }}
+    {{ range .Params.acl_categories }}
+    {{ printf "`%s`" . | markdownify }}
     {{ end}}
   </div>
 </div>
 
-{{ if (isset $c "until") }}
+{{ if (isset .Params "deprecated_since") }}
   <div class="pageinfo pageinfo-secondary">
     <p>
-      As of Redis v{{ $c.until }}, this command is regarded as deprecated.<br />
-      It can be replaced by {{ $c.replaced_by | markdownify }} when migrating or writing new code.
+      As of Redis version {{ .Params.deprecated_since }}, this command is regarded as deprecated.
+      {{ if (isset .Params "replaced_by") }}
+      <br /><br />It can be replaced by {{ .Params.replaced_by | markdownify }} when migrating or writing new code.
+      {{ end }}
     </p>
   </div>
 {{ end }}
 
 {{ .Content }}
 
-<h2>Reply</h2>
-{{ range $c.returns }}
-  {{ . }}
-{{ end }}
-
-{{ if or (isset $c "history") (isset $c "until")}}
+{{ if isset .Params "history" }}
   <h2>History</h2>
   <ul>
-    {{ if (isset $c "until") }}
-    <li>{{ printf "%s: the command was deprecated." $c.until | markdownify }}</li>
-    {{ end }}
-    {{ range $c.history }}
-    <li>{{ index . 0 }}: {{ index . 1 | markdownify }}</li>
+    {{ range .Params.history }}
+    <li>Starting with Redis version {{ index . 0 }}: {{ index . 1 | markdownify }}</li>
   {{ end }}  
   </ul>
 {{ end }}

@@ -1,14 +1,13 @@
-{{ $c := partial "command-getdata.html" . }}
 {{ $manualLink := cond (isset .Params "manuallink") .Params.manualLink ( cond (isset .Params "manuallinkrelref") (relref . .Params.manualLinkRelref) .RelPermalink) }}
 
 <div class="card m-1">
-    <a href="{{ .RelPermalink }}" title="{{ $c.name }}">
+    <a href="{{ .RelPermalink }}" title="{{ .Title }}">
         <div class="card-body m-0 p-2">
             <p class="card-title mb-1">
-                {{ $c.name }} {{ $c.syntax }}
+                {{ .Title }}
             </p>
             <p class="card-text text-muted small">
-                {{ $c.summary }}
+                {{ .Params.summary }}
             </p>
         </div>
     </a>

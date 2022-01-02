@@ -1,8 +1,0 @@
-{{ $name := replace (upper .File.BaseFileName) "-" " " 1 }}
-{{ $data := (index $.Site.Data.commands $name) }}
-{{ $data = merge $data (dict "name" $name) }}
-{{ if (isset $data "arguments") }}
-  {{ $syntax := partial "command-syntax.html" $data.arguments }}
-  {{ $data = merge $data (dict "syntax" $syntax) }}
-{{ end }}
-{{ return $data }}
