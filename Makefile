@@ -14,6 +14,7 @@ all: $(GENERIC) commands
 	
 .PHONY: $(GENERIC)
 $(GENERIC):
+	mkdir -p $(DEST)
 	cp -R "$(REDIS_DOC)/$@" "$(DEST)/$@"
 
 commands:
@@ -24,4 +25,4 @@ commands:
 
 .PHONY: clean
 clean:
-	rm -rf "$(DEST)"/*
+	rm -rf $(DEST)/*

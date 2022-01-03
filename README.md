@@ -8,7 +8,7 @@ When cloning, make sure to bring in the submodules:
 git clone --recurse-submodules --depth 1 https://github.com/redis/redis-website.git
 ```
 
-If you want to do SCSS edits and want to publish these, you need to install `PostCSS`
+Note: if you want to do SCSS edits and want to publish these, you need to install `PostCSS`
 
 ```bash
 npm install
@@ -27,8 +27,10 @@ Once you've made your working copy of the site repo, from the repo root folder, 
 
 ```bash
 REDIS_DOC=/home/you/redis-doc make
-hugo server
+hugo server --disableFastRender
 ```
+
+The website should be up and running on http://localhost:1313/ now.
 
 [Docsy]: https://github.com/google/docsy
 [Hugo theme]: https://gohugo.io/themes/installing-and-using-themes/
