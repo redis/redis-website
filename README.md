@@ -11,7 +11,7 @@ git clone --recurse-submodules --depth 1 https://github.com/redis/redis-website.
 Note: if you want to do SCSS edits and want to publish these, you need to install `PostCSS`
 
 ```bash
-npm install
+npm install postcss
 ```
 
 ## Running the website locally

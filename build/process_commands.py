@@ -118,3 +118,5 @@ if __name__ == '__main__':
         logging.error(f'Missing markdown file for `{cmd}`')
     for md in mds:
         logging.error(f'Missing command for `{md}`')
+    if len(missing_md) > 0 or len(missing_md):
+        exit(1)
