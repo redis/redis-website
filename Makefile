@@ -26,3 +26,7 @@ commands:
 .PHONY: clean
 clean:
 	rm -rf $(DEST)/*
+
+.PHONY: hugo
+hugo:
+	hugo server --disableFastRender
