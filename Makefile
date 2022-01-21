@@ -15,7 +15,7 @@ all: $(GENERIC) commands
 .PHONY: $(GENERIC)
 $(GENERIC):
 	mkdir -p $(DEST)
-	cp -R "$(REDIS_DOC)/$@" "$(DEST)/$@"
+	cp -R "$(REDIS_DOC)/$@" "$(DEST)"
 
 commands:
 	cp -R "$(REDIS_DOC)/$@" "$(DEST)/"
