@@ -1,0 +1,51 @@
+form.redis-cli {
+  font-family: "Cascadia Code", Menlo, monospace;
+  background-color: black;
+  color: white;
+}
+
+form.redis-cli > pre {
+  font: inherit;
+  margin: 0;
+}
+
+form.redis-cli > div.prompt {
+  display: flex;
+}
+
+form.redis-cli > div.prompt > span {
+  white-space: pre-wrap;
+}
+
+form.redis-cli.disabled > div.prompt > span:after {
+  content: '';
+  animation: loader 0.5s linear infinite forwards;
+}
+
+@keyframes loader {
+  0%, 100% {
+    content: '-';
+  }
+
+  25% {
+    content: '\\';
+  }
+
+  50% {
+    content: '|';
+  }
+
+  75% {
+    content: '/';
+  }
+}
+
+form.redis-cli > div.prompt > input {
+  flex: 1 1 auto;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font: inherit;
+  color: #ffffff;
+}
