@@ -21,22 +21,24 @@ $(GENERIC):
 commands:
 	cp -R "$(REDIS_DOC)/$@" "$(DEST)/"
 	python3 build/process_commands.py "$(DEST)/$@/commands.json" "$(DEST)/$@"
-# convert notes/warnings to short codes
-# ...
 
 .PHONY: theme
 theme:
-	cd themes/docsy && git submodule update -f --init
+	cd themes/docsy && git submodule update -f --init --recursive
 
 .PHONY: sources
 sources:
 	rm -rf /tmp/redis-doc
 	git clone --depth 1 --single-branch --branch new-structure https://github.com/redis/redis-doc /tmp/redis-doc
 
+.PHONY: prepare
+prepare: REDIS_DOC = /tmp/redis-doc
+prepare: theme sources all
+
 .PHONY: netlify
 netlify: REDIS_DOC = /tmp/redis-doc
 netlify: theme sources all
-	hugo
+	hugo --gc --minify
 
 .PHONY: clean
 clean:
