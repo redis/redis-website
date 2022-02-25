@@ -1,6 +1,37 @@
 {{ define "main" }}
 <div class="td-content">
-    <h1>{{ .Title }}</h1>
+      <nav>
+        <div class="nav-container">
+          <label>
+            <span>Filter by group:</span>
+            <select class="command-reference-filter">
+              <option value="">All</option>
+              <option value="bitmap">Bitmaps</option>
+              <option value="cluster">Cluster</option>
+              <option value="connection">Connection</option>
+              <option value="geo">Geo</option>
+              <option value="hash">Hashes</option>
+              <option value="hyperloglog">HyperLogLog</option>
+              <option value="generic">Keys</option>
+              <option value="list">Lists</option>
+              <option value="pubsub">Pub/Sub</option>
+              <option value="scripting">Scripting</option>
+              <option value="sentinel">Sentinel</option>
+              <option value="server">Server</option>
+              <option value="set">Sets</option>
+              <option value="sorted-set">Sorted Sets</option>
+              <option value="stream">Streams</option>
+              <option value="string">Strings</option>
+              <option value="transactions">Transactions</option>
+            </select>
+          </label>
+          or
+          <label>
+            <span>search for:</span>
+            <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" class="js-command-reference-search" placeholder="e.g. COMMAND LIST" spellcheck="false">
+          </label>
+        </div>
+      </nav>
   {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
     <header class="article-meta">
         {{ $context := . }}
@@ -37,7 +68,6 @@
             </ul>
         {{ else }}
         {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-        <hr class="panel-line">
         <div class="container">
             <div class="row">
                 {{ range $index, $page := $pages }}
@@ -52,7 +82,7 @@
         </div>
         {{ end }}
     </div>
-    
+
     {{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.GoogleAnalytics)) }}
         {{ partial "feedback.html" .Site.Params.ui.feedback }}
         <br />

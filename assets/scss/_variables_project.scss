@@ -18,8 +18,14 @@ $white: #fff !default;
 $light: #D3F3EE !default;
 
 $dark: #403F4C !default;
+$headergray: #6d7278 !default;
+$footergray: #777777 !default;
+$footerborder: #eeeeee !default;
+$footerlinks: #444444 !default;
 $blue: #72A1E5 !default;
 $orange: #BA5A31 !default;
+$gray: #354253 !default;
+$activeblue: #5961ff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #eee !default;
 $gray-300: #dee2e6 !default;
@@ -32,3 +38,9 @@ $gray-900: #222 !default;
 $black: #000 !default;
 
 $code-color: darken($secondary, 20%) !default;
+
+/*
+
+Add styles for redis.io to match prod
+
+*/

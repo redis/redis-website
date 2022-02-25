@@ -33,7 +33,7 @@
   <ul>
     {{ range .Params.history }}
     <li>Starting with Redis version {{ index . 0 }}: {{ index . 1 | markdownify }}</li>
-  {{ end }}  
+  {{ end }}
   </ul>
 {{ end }}
 
