@@ -98,7 +98,8 @@ if __name__ == '__main__':
         # Prepare FrontMatter booster injection
         fm = {
             'title': name,
-            'description': data['summary'], # TODO: ...
+            'description': data['summary'],
+            'type': 'commands' # TODO: ...
         }
         fm.update(data)
 
