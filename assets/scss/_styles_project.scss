@@ -710,6 +710,7 @@ hr.panel-line {
   }
   #card-id {
     margin: 1em 1.5% !important;
+    overflow: scroll !important;
   }
 }
 @media only screen and (width: 768px) {
@@ -764,8 +765,14 @@ hr.panel-line {
       max-width: 100% !important;
     }
     .td-main main {
-      padding-top: 4.2rem !important;
+      padding-top: 4.1rem !important;
     }
+}
+
+@media only screen and (min-width: 1200px) {
+  .td-main main {
+
+  }
 }
 span.args {
   display: inline !important;
