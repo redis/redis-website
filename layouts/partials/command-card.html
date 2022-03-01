@@ -7,7 +7,7 @@
                 {{ .Title }}
             </p>
               {{ range .Params.arguments }}
-                <span class="args">
+                <span class="args" style="text-overflow: ellipsis !important;">
                     {{ .name }}
                 </span>
               {{ end }}

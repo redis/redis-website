@@ -854,6 +854,12 @@ span.args {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .td-content {
+    margin: 1em !important;
+  }
+}
+
 @media only screen and (max-width: 678px) {
   .mobile-wide {
     max-width: 90% !important;
