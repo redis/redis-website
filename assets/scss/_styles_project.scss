@@ -289,6 +289,7 @@ a:hover {
 
 .td-navbar {
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1) !important;
+
 }
 
 .site-footer { color: #777777 !important; font-size: 11px !important; margin: 20px; border-top: 1px solid #eeeeee; padding: 10px 0 0 0;}
@@ -720,7 +721,7 @@ hr.panel-line {
 
 @media only screen and (max-width: 769px) {
   .td-content nav {
-    margin: 6.5rem 0 0 auto;
+    margin: 5.5rem 0 0 auto;
     background-color: #f0f0f0;
     width: 100%;
     font-size: 0.85em;
@@ -753,6 +754,10 @@ hr.panel-line {
 .td-main main {
   padding-bottom: 2rem !important;
   margin: 0 auto !important;
+  font-family: 'Open Sans', Helvetica, sans-serif !important;
+}
+h1.top-mobile {
+  font-weight: bold !important;
 }
 
 @media only screen and (min-width: 768px) {
@@ -761,13 +766,19 @@ hr.panel-line {
       max-width: 100% !important;
     }
     .td-main main {
-      padding-top: 4.1rem !important;
+      padding-top: 4.2rem !important;
+    }
+    .td-sidebar-nav {
+      max-height: 100% !important;
     }
 }
 
 @media only screen and (max-width: 768px) {
   .top-mobile {
     padding-top: 7.7rem !important;
+  }
+  .td-navbar {
+    margin: 0 auto !important;
   }
 }
 
@@ -807,4 +818,20 @@ span.args {
 .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+.td-sidebar-nav {
+  max-height: 100% !important;
+}
+
+.td-page-meta {
+  margin: .5rem !important;
+}
+
+@media only screen and (max-width: 555px) {
+  div#main_navbar a {
+    font: 12px/1.6 "Open Sans", Helvetica, sans-serif !important;
+  }
+}
+.alert-primary {
+  border-color: #666666 !important;
 }

@@ -6,7 +6,7 @@ filterCommandReference()
 
 return false})
 
-var filter=document.querySelector('.command-reference-filter');filter.addEventListener('change',function(e){window.location.hash=e.target.value;});window.onhashchange=function(){filterCommandReference();}}
+var filter=document.querySelector('.command-reference-filter');filter.addEventListener('change',function(e){console.log('logging'); window.location.hash=e.target.value;});window.onhashchange=function(){filterCommandReference();}}
 
 function filterCommandReference(){var $commands=$(".container .row")
 
