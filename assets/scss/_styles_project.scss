@@ -765,6 +765,12 @@ hr.panel-line {
     }
 }
 
+@media only screen and (max-width: 768px) {
+  .top-mobile {
+    padding-top: 7.7rem !important;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   .td-main main {
 
