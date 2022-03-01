@@ -3,12 +3,12 @@
 {{ if isset .Params "arguments" }}
 {{ $syntax = partial "command-syntax.html" .Params.arguments }}
 {{ end }}
-<h1 class="top-mobile" style="max-width: 70% !important; margin: 0 auto .5em !important;">{{ .Title }} {{ $syntax }}</h1>
+<h1 class="top-mobile mobile-wide" style="margin: 0 auto .5em !important;">{{ .Title }} {{ $syntax }}</h1>
 
-<div class="alert alert-primary" style="max-width: 70% !important; margin: 0 auto 1.5em !important;" role="alert">
-  <div style="margin: 5px 0 !important;"><strong>Available since:</strong> {{ .Params.since }}</div>
-  <div style="margin: 5px 0 !important;"><strong>Time complexity:</strong> {{ .Params.complexity | markdownify }}</div>
-  <div style="margin: 5px 0 !important;"><strong>ACL categories:</strong>
+<div class="alert alert-primary mobile-wide" style="margin: 0 auto 1.5em !important;" role="alert">
+  <div class="mobile-wide" style="margin: 5px 0 !important;"><strong>Available since:</strong> {{ .Params.since }}</div>
+  <div class="mobile-wide" style="margin: 5px 0 !important;"><strong>Time complexity:</strong> {{ .Params.complexity | markdownify }}</div>
+  <div class="mobile-wide" style="margin: 5px 0 !important;"><strong>ACL categories:</strong>
     {{ range .Params.acl_categories }}
     {{ printf "`%s`" . | markdownify }}
     {{ end}}
@@ -16,8 +16,8 @@
 </div>
 
 {{ if (isset .Params "deprecated_since") }}
-  <div class="pageinfo pageinfo-secondary" style="max-width: 70% !important; margin: 0 auto !important;">
-    <p style="max-width: 70% !important; margin: 0 auto !important;">
+  <div class="pageinfo pageinfo-secondary mobile-wide" style="mmargin: 0 auto !important;">
+    <p class="mobile-wide" style="margin: 0 auto !important;">
       As of Redis version {{ .Params.deprecated_since }}, this command is regarded as deprecated.
       {{ if (isset .Params "replaced_by") }}
       <br /><br />It can be replaced by {{ .Params.replaced_by | markdownify }} when migrating or writing new code.
@@ -26,16 +26,16 @@
   </div>
 {{ end }}
 
-<div style="max-width: 70% !important; margin: 0 auto !important;">
+<div class="mobile-wide" style="margin: 0 auto !important;">
 {{ .Content }}
 </div>
 
 
 {{ if isset .Params "history" }}
-  <h2 style="max-width: 70% !important; margin: 0 auto !important;">History</h2>
-  <ul style="max-width: 70% !important; margin: 0 auto !important;">
+  <h2 class="mobile-wide" style="margin: 0 auto !important;">History</h2>
+  <ul class="mobile-wide" style="margin: 0 auto !important;">
     {{ range .Params.history }}
-    <li style="max-width: 70% !important; margin: 0 auto !important;">Starting with Redis version {{ index . 0 }}: {{ index . 1 | markdownify }}</li>
+    <li class="mobile-wide" style="margin: 0 auto !important;">Starting with Redis version {{ index . 0 }}: {{ index . 1 | markdownify }}</li>
   {{ end }}
   </ul>
 {{ end }}

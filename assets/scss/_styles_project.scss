@@ -843,3 +843,19 @@ span.args {
 .alert alert-primary > div {
   margin: 5px 0 !important;
 }
+
+.mobile-wide {
+  max-width: 90% !important;
+}
+
+@media only screen and (min-width: 1200px) {
+  .mobile-wide {
+    max-width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 678px) {
+  .mobile-wide {
+    max-width: 90% !important;
+  }
+}
