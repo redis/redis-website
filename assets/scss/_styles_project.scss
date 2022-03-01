@@ -651,9 +651,7 @@ p.card-title.mb-1 {
 
 #card-id a {
   padding: 1em !important;
-  text-decoration: none !important;
-  height: 8em !important;
-}
+  text-decoration: none !important;}
 .card-body .m-0 .p-2 {
   text-decoration: none !important;
 }
@@ -680,11 +678,10 @@ p.card-text.text-muted.small:hover {
   border: none !important;
   background: white !important;
 }
-
 .td-content nav { margin: 0 auto; background-color: #f0f0f0; width: 100%; font-size: 0.85em; display: block; padding: 10px 0; }
 .td-content nav a { color: #555555; text-decoration: none; display: inline-block; padding: 0.3em 0.5em; }
 .td-content nav a.current { background-color: #666666; color: white; }
-.td-content nav label { margin: 0 10px; }
+.td-content nav label { margin: 0 0px !important; }
 .td-content nav label span { display: none; }
 .td-content nav select, #commands nav input { border: 1px solid #bbbbbb; font-size: 14px; margin: 0 5px; }
 .td-content nav input { border-radius: 5px; padding: 5px 5px 6px 5px; width: 200px; border: 1px solid #bbbbbb; margin: 0 5px; font-size: 14px;}
@@ -710,8 +707,7 @@ hr.panel-line {
   }
   #card-id {
     margin: 1em 1.5% !important;
-    overflow: scroll !important;
-  }
+    }
 }
 @media only screen and (width: 768px) {
   .td-content nav {

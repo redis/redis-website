@@ -6,23 +6,137 @@
             <span>Filter by group:</span>
             <select class="command-reference-filter">
               <option value="">All</option>
-              <option value="bitmap">Bitmaps</option>
-              <option value="cluster">Cluster</option>
-              <option value="connection">Connection</option>
-              <option value="geo">Geo</option>
-              <option value="hash">Hashes</option>
-              <option value="hyperloglog">HyperLogLog</option>
-              <option value="generic">Keys</option>
-              <option value="list">Lists</option>
-              <option value="pubsub">Pub/Sub</option>
-              <option value="scripting">Scripting</option>
-              <option value="sentinel">Sentinel</option>
-              <option value="server">Server</option>
-              <option value="set">Sets</option>
-              <option value="sorted-set">Sorted Sets</option>
-              <option value="stream">Streams</option>
-              <option value="string">Strings</option>
-              <option value="transactions">Transactions</option>
+              <option value="bitmap">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Bitmap" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="cluster">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Cluster" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="connection">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Connection" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="geo">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Geospatial indices" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="hash">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Hash" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="hyperloglog">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "HyperLogLog" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="generic">
+                Keys
+              </option>
+              <option value="list">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "List" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="pubsub">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Pub/Sub" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="scripting">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Scripting and Functions" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="sentinel">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Sentinel" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="server">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Server" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="set">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Set" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="sorted-set">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Sorted Set" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="stream">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Stream" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="string">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "String" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="transactions">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Transactions" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
             </select>
           </label>
           or
