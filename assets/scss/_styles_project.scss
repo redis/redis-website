@@ -835,3 +835,11 @@ span.args {
 .alert-primary {
   border-color: #666666 !important;
 }
+
+.alert {
+  padding: 5px 15px !important;
+}
+
+.alert alert-primary > div {
+  margin: 5px 0 !important;
+}

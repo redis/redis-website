@@ -3,12 +3,12 @@
 {{ if isset .Params "arguments" }}
 {{ $syntax = partial "command-syntax.html" .Params.arguments }}
 {{ end }}
-<h1 class="top-mobile" style="max-width: 70% !important; margin: 0 auto !important;">{{ .Title }} {{ $syntax }}</h1>
+<h1 class="top-mobile" style="max-width: 70% !important; margin: 0 auto .5em !important;">{{ .Title }} {{ $syntax }}</h1>
 
-<div class="alert alert-primary" style="max-width: 70% !important; margin: 0 auto !important;" role="alert">
-  <div><strong>Available since:</strong> {{ .Params.since }}</div>
-  <div><strong>Time complexity:</strong> {{ .Params.complexity | markdownify }}</div>
-  <div><strong>ACL categories:</strong>
+<div class="alert alert-primary" style="max-width: 70% !important; margin: 0 auto 1.5em !important;" role="alert">
+  <div style="margin: 5px 0 !important;"><strong>Available since:</strong> {{ .Params.since }}</div>
+  <div style="margin: 5px 0 !important;"><strong>Time complexity:</strong> {{ .Params.complexity | markdownify }}</div>
+  <div style="margin: 5px 0 !important;"><strong>ACL categories:</strong>
     {{ range .Params.acl_categories }}
     {{ printf "`%s`" . | markdownify }}
     {{ end}}
