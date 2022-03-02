@@ -139,6 +139,7 @@ i.fa.fa-angle-right.fa-lg.category-icon:hover {
   font-family: "Open Sans", Helvetica, sans-serif !important;
   font-size: 16px !important;
   line-height: 22px !important;
+  margin-left: 14px !important;
 }
 
 a {
@@ -753,7 +754,7 @@ hr.panel-line {
 
 .td-main main {
   padding-bottom: 2rem !important;
-  margin: 0 auto !important;
+  margin: 0 0 0 1em !important;
   font-family: 'Open Sans', Helvetica, sans-serif !important;
 }
 h1.top-mobile {
@@ -779,6 +780,9 @@ h1.top-mobile {
   }
   .td-navbar {
     margin: 0 auto !important;
+  }
+  .td-content > h1 {
+    margin-left: 12px !important;
   }
 }
 
@@ -855,13 +859,20 @@ span.args {
 }
 
 @media only screen and (min-width: 768px) {
-  .td-content {
-    margin: 1em !important;
+  // .td-content {
+  //   margin: 1em !important;
+  // }
+
+  .margin-content {
+    margin-left: 20px !important;
   }
 }
 
-@media only screen and (max-width: 678px) {
+@media only screen and (max-width: 768px) {
   .mobile-wide {
     max-width: 90% !important;
+  }
+  .margin-content {
+    margin-left: 10px !important;
   }
 }
