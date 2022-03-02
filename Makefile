@@ -7,11 +7,11 @@ REDIS_DOC ?= ../redis-doc
 # Destination for output content
 DEST = ./content/en
 # List of files/directories that are just copied as is
-GENERIC = _index.html search.md about clients community docs modules tools
+GENERIC = _index.html search.md clients community docs modules tools
 
 .PHONY: all
 all: $(GENERIC) commands
-	
+
 .PHONY: $(GENERIC)
 $(GENERIC):
 	mkdir -p $(DEST)
