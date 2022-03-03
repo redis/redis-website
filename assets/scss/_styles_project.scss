@@ -1,6 +1,9 @@
 .command-card {
     align-items: stretch;
+    flex-basis: 30%;
+    flex-grow: 1;
     text-decoration: none !important;
+    width: 30%;
 }
 #card-id:hover {
   background-color: #ecf7fa !important;

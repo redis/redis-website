@@ -2,7 +2,7 @@
 <div class="td-content">
       <nav>
         <div class="nav-container">
-          <label>
+          <!-- <label>
             <span>Filter by group:</span>
             <select class="command-reference-filter">
               <option value="">All</option>
@@ -138,8 +138,8 @@
                 {{ end }}
               </option>
             </select>
-          </label>
-          or
+          </label> -->
+          <!-- or -->
           <label>
             <span>search for:</span>
             <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" class="js-command-reference-search" placeholder="e.g. COMMAND LIST" spellcheck="false">
@@ -185,7 +185,7 @@
         <div class="container">
             <div class="row">
                 {{ range $index, $page := $pages }}
-                    <div class="col command-card d-flex">
+                    <div class="col command-card">
                         {{ partial "command-card.html" $page }}
                     </div>
                     {{ if eq (mod (add $index 1) 3) 0 }}
