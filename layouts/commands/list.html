@@ -1,6 +1,151 @@
 {{ define "main" }}
 <div class="td-content">
-    <h1>{{ .Title }}</h1>
+      <nav>
+        <div class="nav-container">
+          <!-- <label>
+            <span>Filter by group:</span>
+            <select class="command-reference-filter">
+              <option value="">All</option>
+              <option value="bitmap">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Bitmap" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="cluster">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Cluster" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="connection">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Connection" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="geo">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Geospatial indices" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="hash">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Hash" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="hyperloglog">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "HyperLogLog" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="generic">
+                Keys
+              </option>
+              <option value="list">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "List" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="pubsub">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Pub/Sub" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="scripting">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Scripting and Functions" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="sentinel">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Sentinel" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="server">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Server" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="set">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Set" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="sorted-set">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Sorted Set" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="stream">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Stream" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="string">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "String" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+              <option value="transactions">
+                {{ $commandGroups := site.Data.commandgroups }}
+                {{ range $commandGroups }}
+                  {{ if eq .display "Transactions" }}
+                    {{ .display }}
+                  {{ end }}
+                {{ end }}
+              </option>
+            </select>
+          </label> -->
+          <!-- or -->
+          <label>
+            <span>search for:</span>
+            <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" class="js-command-reference-search" placeholder="e.g. COMMAND LIST" spellcheck="false">
+          </label>
+        </div>
+      </nav>
   {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
     <header class="article-meta">
         {{ $context := . }}
@@ -37,11 +182,10 @@
             </ul>
         {{ else }}
         {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-        <hr class="panel-line">
         <div class="container">
             <div class="row">
                 {{ range $index, $page := $pages }}
-                    <div class="col command-card d-flex">
+                    <div class="col command-card">
                         {{ partial "command-card.html" $page }}
                     </div>
                     {{ if eq (mod (add $index 1) 3) 0 }}
@@ -52,7 +196,7 @@
         </div>
         {{ end }}
     </div>
-    
+
     {{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.GoogleAnalytics)) }}
         {{ partial "feedback.html" .Site.Params.ui.feedback }}
         <br />
