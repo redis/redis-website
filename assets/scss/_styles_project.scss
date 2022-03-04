@@ -109,3 +109,11 @@ h1.single-command {
     border-color: #dfdfdf;
     color: #666666;
 }
+
+#content-mobile {
+    .td-sidebar__search {
+        input {
+            display: none !important;
+        }
+    }
+}
