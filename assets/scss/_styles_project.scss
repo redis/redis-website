@@ -78,7 +78,7 @@
 
 .site-footer {
     border-top: 1px solid #eeeeee;
-    margin: 5em auto 3em auto;
+    margin: 0 auto 3em auto;
     min-height: 36px;
     color: #777777;
     font-size: 11px;
@@ -103,6 +103,7 @@
 h1.single-command {
     font-size: 2rem;
     font-weight: 600;
+    margin-top: 3rem;
 }
 
 .alert-primary {
@@ -118,6 +119,32 @@ h1.single-command {
     }
 }
 
-.td-main .container {
+.td-main .container:not(.justify-content-center) {
     padding-top: 5.5rem;
+}
+
+.td-main main {
+    padding-top: 1rem;
+}
+
+.sidebar-title {
+    color: #222222;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.td-sidebar-toc {
+    border-left: none;
+}
+
+.td-toc {
+    border-left: 1px solid #dee2e6;
+    padding-left: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .td-sidebar-nav {
+        max-height: calc(100vh - 5rem);
+        overflow-y: auto;
+    }
 }
