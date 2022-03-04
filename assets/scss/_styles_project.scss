@@ -1,3 +1,14 @@
 .command-card {
     align-items: stretch;
 }
+
+.td-page-meta {
+    display: flex;
+    justify-content: center;
+
+    a {
+        &:first-of-type {
+            margin-right: 1rem;
+        }
+    }
+}
