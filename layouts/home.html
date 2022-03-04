@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="container">
+<p class="lead mb-5 w-75 mx-auto">
+    <!-- TODO: get this text from the intro.md -->
+    Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker.
+    Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams.
+    Redis has built-in replication, Lua scripting, LRU eviction, transactions, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster. <a href="https://redis.io/topics/introduction">Learn More</a>
+    <!-- TODO: add link to intro.md -->
+</p>
+
+<div class="row w-75 mx-auto px-0">
+    <div class="col">
+        <h2>Try it</h2>
+        Ready for a test drive? Check this <a href="http://try.redis.io/">interactive tutorial</a> that will walk you through the most important features of Redis.
+    </div>
+    <div class="col">
+        <h2>Download it</h2>
+        <a href="https://download.redis.io/releases/redis-6.2.6.tar.gz">Redis 6.2.6 is the latest stable version.</a> Interested in release candidates or unstable versions? <a href="https://redis.io/download">Check the downloads page.</a>
+    </div>
+    <div class="col">
+        <h2>Quick links</h2>
+        Follow day-to-day Redis on <a href="http://twitter.com/redisfeed">Twitter</a> and <a href="http://github.com/redis/redis">GitHub</a>. Get help or help others by subscribing to <a href="https://groups.google.com/forum/?fromgroups#!forum/redis-db">our mailing list</a>, we are 5,000 and counting!
+    </div>
+</div>
+</div>
+{{ with .Content }}
+{{ . }}
+{{ end }}
+{{ end }}
