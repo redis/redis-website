@@ -75,3 +75,27 @@
         margin: 0 5px;
     }
 }
+
+.site-footer {
+    border-top: 1px solid #eeeeee;
+    margin: 5em auto 3em auto;
+    min-height: 36px;
+    color: #777777;
+    font-size: 11px;
+    padding-top: 2rem;
+    text-align: center;
+    width: 100%;
+
+    .container {
+        background: url(https://redis.com/wp-content/themes/wpx/assets/images/icon-redis.svg) no-repeat left top;
+        min-height: 36px;
+        padding: 0 0 0 50px;
+        position: relative;
+        max-width: 474px;
+
+        p {
+            margin-bottom: 0;
+            padding-top: .2rem;
+        }
+    }
+}
