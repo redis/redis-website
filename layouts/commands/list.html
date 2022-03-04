@@ -1,6 +1,6 @@
 {{ define "main" }}
+{{ partial "filter.html" . }}
 <div class="td-content">
-    <h1>{{ .Title }}</h1>
   {{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
     <header class="article-meta">
         {{ $context := . }}
@@ -37,16 +37,12 @@
             </ul>
         {{ else }}
         {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-        <hr class="panel-line">
         <div class="container">
             <div class="row">
                 {{ range $index, $page := $pages }}
-                    <div class="col command-card d-flex">
+                    <div class="col command-card">
                         {{ partial "command-card.html" $page }}
                     </div>
-                    {{ if eq (mod (add $index 1) 3) 0 }}
-                      <div class="w-100"></div>
-                    {{ end }}
                 {{ end }}
             </div>
         </div>
