@@ -3,7 +3,7 @@
 {{ if isset .Params "arguments" }}
 {{ $syntax = partial "command-syntax.html" .Params.arguments }}
 {{ end }}
-<h1>{{ .Title }} {{ $syntax }}</h1>
+<h1 class="single-command">{{ .Title }} {{ $syntax }}</h1>
 
 <div class="alert alert-primary" role="alert">
   <div><strong>Available since:</strong> {{ .Params.since }}</div>
