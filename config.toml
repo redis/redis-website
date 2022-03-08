@@ -35,6 +35,12 @@ taxonomyCloudTitle = ["Tag Cloud", "Categories"]
 taxonomyPageHeader = ["tags", "categories"] 
 
 
+[related]
+[[related.indices]]
+  name = 'group'
+  weight = 1
+  includeNewer = true
+
 # Highlighting config
 pygmentsCodeFences = true
 pygmentsUseClasses = false
