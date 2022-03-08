@@ -4,23 +4,9 @@
             <span>Filter by group:</span>
             <select class="command-reference-filter">
                 <option value="">All</option>
-                <option value="bitmap">Bitmaps</option>
-                <option value="cluster">Cluster</option>
-                <option value="connection">Connection</option>
-                <option value="geo">Geo</option>
-                <option value="hash">Hashes</option>
-                <option value="hyperloglog">HyperLogLog</option>
-                <option value="generic">Keys</option>
-                <option value="list">Lists</option>
-                <option value="pubsub">Pub/Sub</option>
-                <option value="scripting">Scripting</option>
-                <option value="sentinel">Sentinel</option>
-                <option value="server">Server</option>
-                <option value="set">Sets</option>
-                <option value="sorted-set">Sorted Sets</option>
-                <option value="stream">Streams</option>
-                <option value="string">Strings</option>
-                <option value="transactions">Transactions</option>
+                {{- range $id, $group := .Site.Data.groups -}}
+                <option value="{{ $id }}">{{ $group.display }}</option>
+                {{ end }}
             </select>
         </label>
         <label>

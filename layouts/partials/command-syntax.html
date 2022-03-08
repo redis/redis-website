@@ -37,7 +37,7 @@
   {{ end }}
 
   {{ if and (isset . "optional") .optional }}
-    {{ $s = printf "[%s]" $s }}
+    {{ $s = printf "[%s]" (trim $s " ") }}
   {{ end }}
 {{ else }}
   {{ errorf "Syntax error: command argument isn't an array or an object: (%T %+v)" . . }}

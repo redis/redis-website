@@ -6,20 +6,20 @@
 REDIS_DOC ?= ../redis-doc
 # Destination for output content
 DEST = ./content/en
-# List of files/directories that are just copied as is
-GENERIC = _index.html clients community docs modules tools
+# Remove these files from the docs
+REMOVE = LICENSE COPYRIGHT README.md wordlist
 
 .PHONY: all
-all: $(GENERIC) commands
+all: clean payload commands hugo
 	
-.PHONY: $(GENERIC)
-$(GENERIC):
+.PHONY: payload
+payload:
 	mkdir -p $(DEST)
-	cp -R "$(REDIS_DOC)/$@" "$(DEST)"
+	cp -R $(REDIS_DOC)/* $(DEST)
+	cd $(DEST) && rm $(REMOVE)
 
 .PHONY: commands
 commands:
-	cp -R "$(REDIS_DOC)/$@" "$(DEST)/"
 	python3 build/process_commands.py "$(DEST)/$@/commands.json" "$(DEST)/$@"
 
 .PHONY: theme
