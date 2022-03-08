@@ -103,7 +103,6 @@
 h1.single-command {
     font-size: 2rem;
     font-weight: 600;
-    margin-top: 3rem;
 }
 
 .alert-primary {
@@ -119,12 +118,12 @@ h1.single-command {
     }
 }
 
-.td-main .container:not(.justify-content-center) {
-    padding-top: 5.5rem;
+.td-main {
+    padding-top: 4rem;
 }
 
 .td-main main {
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .sidebar-title {
@@ -135,6 +134,10 @@ h1.single-command {
 
 .td-sidebar-toc {
     border-left: none;
+}
+
+.td-sidebar {
+    padding-top: 2rem;
 }
 
 .td-toc {
