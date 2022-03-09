@@ -57,7 +57,7 @@ for (const [key, { element }] of Object.entries(FILTERS)) {
 			url.searchParams.set(key, element.value);
 		}
 
-		setUrl(key, element.value);
+		setUrl();
 		filter();
 	});
 }
