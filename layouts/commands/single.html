@@ -1,7 +1,10 @@
 {{ define "main" }}
 {{ $syntax := "" }}
 {{ if isset .Params "arguments" }}
-{{ $syntax = partial "command-syntax.html" .Params.arguments }}
+  {{ $args := .Params.arguments }}
+  {{ if gt (len $args) 0 }}
+    {{ $syntax = partial "command-syntax.html" $args }}
+  {{ end }}
 {{ end }}
 <h1 class="single-command">{{ .Title }} {{ $syntax }}</h1>
 
