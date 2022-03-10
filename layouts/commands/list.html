@@ -37,14 +37,10 @@
             </ul>
         {{ else }}
         {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-        <div class="container">
-            <div class="row">
-                {{ range $index, $page := $pages }}
-                    <div class="col command-card">
-                        {{ partial "command-card.html" $page }}
-                    </div>
-                {{ end }}
-            </div>
+        <div id="commands-grid">
+            {{ range $index, $page := $pages }}
+                {{ partial "command-card.html" $page }}
+            {{ end }}
         </div>
         {{ end }}
 

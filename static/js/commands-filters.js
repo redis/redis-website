@@ -1,11 +1,9 @@
 const FILTERS = {
 	group: {
 		element: document.querySelector('#group-filter'),
-		attribute: 'data-group'
 	},
 	name: {
 		element: document.querySelector('#name-filter'),
-		attribute: 'title',
 		partialMatch: true
 	}
 };
@@ -17,18 +15,20 @@ function filter() {
 	}
 
 	const filters = [];
-	for (const { element: { value }, attribute, partialMatch } of Object.values(FILTERS)) {
+	for (const [key, { element: { value }, partialMatch }] of Object.entries(FILTERS)) {
 		if (!value) continue;
 
 		const escapedQuery = value.replace(/"/g, '\\"');
-		filters.push(`.card:not([${attribute}${partialMatch ? '*' : ''}="${escapedQuery}" i])`);
+		filters.push(`#commands-grid > a:not([data-${key}${partialMatch ? '*' : ''}="${escapedQuery}" i])`);
 	}
 
 	if (!filters.length) return;
 
+	console.log(filters.join(','));
+
 	for (const card of document.querySelectorAll(filters.join(','))) {
-		card.parentElement.style.display = 'none';
-		hiddenCards.push(card.parentElement);
+		card.style.display = 'none';
+		hiddenCards.push(card);
 	}
 }
 
