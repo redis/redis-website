@@ -1,6 +1,6 @@
 #commands-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(21em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
     gap: 1em;
     padding-top: 2em;
 
@@ -52,9 +52,9 @@
         margin-right: 10px;
     }
 
-    input {
+    input[type="search"] {
         border: 1px solid #bbbbbb;
-        font-size: 14px;
+        font-size: 1em;
         margin: 0 5px;
         border-radius: 5px;
         padding: 5px 5px 6px 5px;
@@ -64,8 +64,14 @@
     select {
         border: 1px solid #bbbbbb;
         height: 32px;
-        font-size: 14px;
+        font-size: 1em;
         margin: 0 5px;
+    }
+
+    input[type="checkbox"] {
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: middle;
     }
 }
 
