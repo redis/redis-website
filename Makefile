@@ -10,7 +10,7 @@ DEST = ./content/en
 REMOVE = LICENSE COPYRIGHT README.md wordlist
 
 .PHONY: all
-all: clean payload commands hugo
+all: clean payload commands
 	
 .PHONY: payload
 payload:
