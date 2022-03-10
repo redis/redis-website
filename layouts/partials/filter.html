@@ -2,7 +2,7 @@
     <div class="container justify-content-center d-flex align-items-center">
         <label>
             <span>Filter by group:</span>
-            <select class="command-reference-filter">
+            <select id="group-filter">
                 <option value="">All</option>
                 {{- range $id, $group := .Site.Data.groups -}}
                 <option value="{{ $id }}">{{ $group.display }}</option>
@@ -11,7 +11,7 @@
         </label>
         <label>
             <span>or search for:</span>
-            <input autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" class="js-command-reference-search" placeholder="e.g. CLUSTER BUMPEPOCH" spellcheck="false">
+            <input id="name-filter" type="search" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" placeholder="e.g. CLUSTER BUMPEPOCH" spellcheck="false">
         </label>
     </div>
 </nav>

@@ -10,7 +10,7 @@
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap justify-content-center">
-          <main class="col-12 col-md-9 col-xl-8 pl-md-5 mt-4" role="main">
+          <main class="col-12 col-md-9 col-xl-8" role="main">
             {{ partial "version-banner.html" . }}
             {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
             {{ block "main" . }}{{ end }}

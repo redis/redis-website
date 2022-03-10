@@ -1,14 +1,19 @@
 {{ $manualLink := cond (isset .Params "manuallink") .Params.manualLink ( cond (isset .Params "manuallinkrelref") (relref . .Params.manualLinkRelref) .RelPermalink) }}
 
-<div class="card m-1" data-group="{{ .Params.group }}" data-name="{{ lower .Title }}">
-    <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-        <div class="card-body m-0 p-2">
-            <p class="card-title mb-1">
-                {{ .Title }}
-            </p>
-            <p class="card-text text-muted small">
-                {{ .Params.summary }}
-            </p>
-        </div>
-    </a>
-</div>
+{{ $syntax := "" }}
+{{ if isset .Params "arguments"  }}
+    {{ $args := .Params.arguments }}
+    {{ if gt (len $args) 0 }}
+        {{ $syntax = partial "command-syntax.html" $args }}
+    {{ end }}
+{{ end }}
+
+<a class="p-3" href="{{ .RelPermalink }}" title="{{ printf "%s %s" .Title $syntax }}" data-name="{{ .Title }}" data-group="{{ .Params.group }}">
+    <p class="title mb-1">
+        {{ .Title }}
+        <span class="text-muted">{{ $syntax }}</span>
+    </p>
+    <p class="card-text text-muted small">
+        {{ .Params.summary }}
+    </p>
+</a>
