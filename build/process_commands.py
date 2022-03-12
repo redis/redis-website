@@ -99,7 +99,6 @@ if __name__ == '__main__':
         fm = {
             'title': name,
             'description': data['summary'],
-            'type': 'commands' # TODO: ...
         }
         fm.update(data)
 

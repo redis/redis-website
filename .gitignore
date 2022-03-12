@@ -5,3 +5,4 @@ package-lock.json
 .hugo_build.lock
 content
 .idea
+.DS_STORE
