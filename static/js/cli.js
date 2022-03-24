@@ -210,7 +210,7 @@ function formatReply(reply, indent = '') {
   if (type === 'string') {
     return `"${reply}"`;
   } else if (type === 'number') {
-    return `(interger) ${reply}`;
+    return `(integer) ${reply}`;
   } else if (Array.isArray(reply)) {
     if (reply.length === 0) {
       return '(empty array)';
